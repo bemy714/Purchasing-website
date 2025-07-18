@@ -1,0 +1,14 @@
+{
+  "name": "currency-converter-pro",
+  "version": "1.0.0",
+  "description": "A professional currency converter.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "install-dependencies": "npm install express cors"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
