@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>月影代購匯率計算器</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+TC:wght@500;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+TC:wght@500;900&display=swap" rel="stylesheet" />
   <style>
     :root {
       --color-main: #3586ff;
@@ -16,10 +16,11 @@
       --color-danger: #e95065;
     }
     html, body {
-      min-height:100vh;
+      min-height: 100vh;
       background: linear-gradient(140deg, #f4f6ff 0%, #e9f4ff 93%, #ffe2ed 100%);
       font-family: 'Noto Sans TC', 'Inter', Arial, sans-serif;
-      margin:0;padding:0;
+      margin: 0;
+      padding: 0;
     }
     .container {
       max-width: 440px;
@@ -33,100 +34,118 @@
       z-index: 1;
     }
     .container::before {
-      content:"";
+      content: "";
       position: absolute;
       z-index: -1;
-      left:-50px; top: -70px;
-      width:360px; height:160px;
-      background: radial-gradient(ellipse 75% 50% at top left, #85baff30 75%, transparent 100%);
-      filter:blur(2px);
+      left: -50px;
+      top: -70px;
+      width: 360px;
+      height: 160px;
+      background: radial-gradient(
+        ellipse 75% 50% at top left,
+        #85baff30 75%,
+        transparent 100%
+      );
+      filter: blur(2px);
     }
     h2 {
       text-align: center;
-      letter-spacing:2.2px;
+      letter-spacing: 2.2px;
       color: var(--color-main);
       font-size: 1.38em;
       font-family: 'Inter', 'Noto Sans TC', Arial, sans-serif;
-      font-weight:900;
+      font-weight: 900;
       margin-bottom: 0.2em;
-      margin-top:0;
+      margin-top: 0;
       background: linear-gradient(92deg, #317cf8 50%, #32e1a8 96%);
-      background-clip: text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
     }
     .brand-tip {
-      text-align:center;
-      color:var(--color-main2);
-      font-family:'Courier New',monospace;
-      font-weight:600;
-      margin-top:-6px;
-      margin-bottom:1.2em;
-      letter-spacing:2px;
-      font-size:1em;
+      text-align: center;
+      color: var(--color-main2);
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      margin-top: -6px;
+      margin-bottom: 1.2em;
+      letter-spacing: 2px;
+      font-size: 1em;
     }
-    .form-card{
+    .form-card {
       background: var(--color-card2);
-      border-radius:13px;
+      border-radius: 13px;
       box-shadow: 0 2px 16px #e6effc36;
       padding: 1.3em 1.2em 0.2em 1.2em;
       margin-bottom: 1.8em;
-      margin-top:0em;
+      margin-top: 0em;
     }
     .row {
       display: flex;
-      align-items:center;
+      align-items: center;
       gap: 0.65em;
       margin: 1.2em 0 1.15em 0;
-      font-weight:500;
+      font-weight: 500;
       flex-wrap: nowrap;
     }
-    .icon-currency{
-      width:30px; height:30px; border-radius:50%;
-      box-shadow:0 2px 8px #bacef030;
-      margin-right:.18em;
-      object-fit:cover; background:#fff;
-      border:1.5px solid #dde9f9;
-      display:inline-block;vertical-align:middle;
+    .icon-currency {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #bacef030;
+      margin-right: 0.18em;
+      object-fit: cover;
+      background: #fff;
+      border: 1.5px solid #dde9f9;
+      display: inline-block;
+      vertical-align: middle;
     }
-    #base-currency { flex:0 0 117px;}
-    select, input[type=number] {
+    #base-currency {
+      flex: 0 0 117px;
+    }
+    select,
+    input[type="text"] {
       font-size: 1.14em;
       border: 1.5px solid #cedff6;
       border-radius: 6.5px;
       background: #f5faff;
       outline: none;
       padding: 0.36em 0.7em;
-      transition: border-color .17s, background .17s;
-      font-family:inherit;
-      box-sizing:border-box;
+      transition: border-color 0.17s, background 0.17s;
+      font-family: inherit;
+      box-sizing: border-box;
     }
-    select:focus, input[type=number]:focus {
+    select:focus,
+    input[type="text"]:focus {
       border-color: var(--color-main);
       background: #e6f0ff;
     }
     .action-radio {
-      flex-direction:row;
+      flex-direction: row;
       justify-content: flex-start;
       background: #eaf4fe;
       border-radius: 8px;
-      padding: .6em 0.8em .7em 1em;
-      margin:.1em 0 1.15em 0;
-      font-size: 1.10em;
-      gap:34px;
-      font-weight:700;
-      align-items:center;
+      padding: 0.6em 0.8em 0.7em 1em;
+      margin: 0.1em 0 1.15em 0;
+      font-size: 1.1em;
+      gap: 34px;
+      font-weight: 700;
+      align-items: center;
     }
-    .action-radio input[type=radio] {
+    .action-radio input[type="radio"] {
       accent-color: var(--color-main);
-      margin-right: .5em;
-      width:1em; height:1em;
-      vertical-align:middle;
+      margin-right: 0.5em;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
     }
     .action-radio label {
-      margin-right:9px;
-      font-weight:560;
-      letter-spacing:1px;
-      color:var(--color-main);
-      font-size:1.08em;
+      margin-right: 9px;
+      font-weight: 560;
+      letter-spacing: 1px;
+      color: var(--color-main);
+      font-size: 1.08em;
     }
     .input-label-text {
       min-width: 112px;
@@ -134,77 +153,99 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-weight:600;
-      color:var(--color-main);
-      font-size:1.08em;
-      letter-spacing:1px;
-      flex:0 0 112px;
+      font-weight: 600;
+      color: var(--color-main);
+      font-size: 1.08em;
+      letter-spacing: 1px;
+      flex: 0 0 112px;
     }
     #amount {
-      width:118px;
+      width: 118px;
       font-size: 1.14em;
-      font-weight:700;
-      margin-right:4px;
+      font-weight: 700;
+      margin-right: 4px;
     }
     .unit-text {
       min-width: 22px;
       font-weight: 800;
       color: var(--color-main2);
       font-family: 'Inter', 'Noto Sans TC', Arial, sans-serif;
-      font-size:1.06em;
+      font-size: 1.06em;
     }
     .err-tip {
       color: var(--color-danger);
-      min-width:70px;
-      margin-left:.65em;
-      font-size:1em;
-      letter-spacing:1px;
+      min-width: 70px;
+      margin-left: 0.65em;
+      font-size: 1em;
+      letter-spacing: 1px;
     }
     .result {
       background: linear-gradient(90deg, #e9f6fe 65%, #e9fef6 100%);
       padding: 1.4em 1em 1em 1em;
       border-radius: 13px;
       margin: 1.8em 0 1.2em 0;
-      box-shadow:0 1px 18px #ccd5dc40;
+      box-shadow: 0 1px 18px #ccd5dc40;
       font-size: 1.13em;
-      border:1.5px solid #c2e2fc;
+      border: 1.5px solid #c2e2fc;
       animation: fadein 0.27s;
     }
-    @keyframes fadein { from {opacity:0;transform:translateY(15px);} to {opacity:1;transform:translateY(0);} }
+    @keyframes fadein {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     .amt {
       color: #e95065;
       font-weight: 900;
       font-size: 1.38em;
-      letter-spacing:1.2px;
+      letter-spacing: 1.2px;
     }
     .foreign-amt-label {
       color: var(--color-main);
       font-weight: bold;
-      letter-spacing:1px;
+      letter-spacing: 1px;
     }
     #last_update {
       color: #789;
-      font-size:0.98em;
-      margin-top:9px;
+      font-size: 0.98em;
+      margin-top: 9px;
     }
     .tip {
-      background:#e3f5ff;
-      border-radius:6px;
+      background: #e3f5ff;
+      border-radius: 6px;
       color: var(--color-main);
-      line-height:1.7;
-      font-size:0.98em;
-      margin:1.1em 0 0 0;
-      padding:1.05em 1.3em 0.8em 1.2em;
-      box-shadow:0 1px 7px #bad8eb17;
-      border-left:4px solid #47cae3;
-      font-weight:500;
+      line-height: 1.7;
+      font-size: 0.98em;
+      margin: 1.1em 0 0 0;
+      padding: 1.05em 1.3em 0.8em 1.2em;
+      box-shadow: 0 1px 7px #bad8eb17;
+      border-left: 4px solid #47cae3;
+      font-weight: 500;
     }
     @media (max-width: 560px) {
-      .container { padding:0.7em 0.02em;}
-      h2 { font-size:1.11em;}
-      .result, .tip { font-size:0.98em;}
-      .form-card { padding:0.7em 0.8em 0.2em .77em;}
-      .input-label-text{min-width:88px;max-width:118px;font-size:0.97em;}
+      .container {
+        padding: 0.7em 0.02em;
+      }
+      h2 {
+        font-size: 1.11em;
+      }
+      .result,
+      .tip {
+        font-size: 0.98em;
+      }
+      .form-card {
+        padding: 0.7em 0.8em 0.2em 0.77em;
+      }
+      .input-label-text {
+        min-width: 88px;
+        max-width: 118px;
+        font-size: 0.97em;
+      }
     }
   </style>
 </head>
@@ -213,8 +254,13 @@
     <h2>月影代購<b style="font-family:'Noto Sans TC';color:#16d49c;">匯率計算</b></h2>
     <div class="brand-tip">💱 支援多幣即時自動換算</div>
     <div class="form-card">
-      <div class="row" style="margin-bottom:0.2em;">
-        <img id="currency-icon" class="icon-currency" src="hkd.svg" alt="外幣icon"/>
+      <div class="row" style="margin-bottom: 0.2em;">
+        <img
+          id="currency-icon"
+          class="icon-currency"
+          src="hkd.svg"
+          alt="外幣icon"
+        />
         <select id="base-currency">
           <option value="HKD">港幣 HKD</option>
           <option value="CNY">人民幣 CNY</option>
@@ -222,29 +268,64 @@
         </select>
       </div>
       <div class="action-radio">
-        <input type="radio" name="direction" value="foreignToTwd" id="dir1" checked>
+        <input
+          type="radio"
+          name="direction"
+          value="foreignToTwd"
+          id="dir1"
+          checked
+        />
         <label for="dir1"><span class="foreign-label">港幣</span> 換台幣</label>
-        <input type="radio" name="direction" value="twdToForeign" id="dir2">
+        <input
+          type="radio"
+          name="direction"
+          value="twdToForeign"
+          id="dir2"
+        />
         <label for="dir2">台幣 換<span class="foreign-label">港幣</span></label>
       </div>
       <div class="row">
-        <label for="amount" class="input-label-text" id="input-label">我需要港幣</label>
-        <input type="number" id="amount" min="1" autocomplete="off" />
+        <label for="amount" class="input-label-text" id="input-label"
+          >我需要港幣</label
+        >
+        <input
+          type="text"
+          id="amount"
+          min="1"
+          maxlength="5"
+          autocomplete="off"
+          inputmode="numeric"
+          pattern="[0-9]*"
+        />
         <span class="unit-text" id="unit-text">元</span>
         <span id="err-tip" class="err-tip"></span>
       </div>
     </div>
-    <div id="result-block" class="result" style="display:none;">
-      <div style="margin-bottom:0.4em;">
-        匯率 (含服務匯差)：<b><span id="rate_txt"></span></b>
+    <div id="result-block" class="result" style="display: none">
+      <div style="margin-bottom: 0.4em">
+        匯率 (含匯差)：
+        <b><span id="rate_txt"></span></b>
       </div>
       <div id="result-direction1">
         你需要 <b>支付台幣</b>：<span class="amt" id="final-twd"></span> 元
-        <br /><span style="color:#789;">含服務費 <span id="fee_text"></span> 元、營業稅 <span id="tax_text"></span> 元</span>
+        <br />
+        <span style="color: #789;"
+          >含服務費 <span id="fee_text"></span> 元、營業稅 <span
+            id="tax_text"
+          ></span>
+          元</span
+        >
       </div>
-      <div id="result-direction2" style="display:none;">
-        你將 <b>收到 <span class="foreign-amt-label"></span></b>：<span class="amt" id="final-foreign"></span>
-        <br /><span style="color:#789;">已扣服務費 <span id="fee_text2"></span> 元與營業稅 <span id="tax_text2"></span> 元</span>
+      <div id="result-direction2" style="display: none">
+        你將 <b>收到 <span class="foreign-amt-label"></span></b>：
+        <span class="amt" id="final-foreign"></span>
+        <br />
+        <span style="color: #789;"
+          >已扣服務費 <span id="fee_text2"></span> 元與營業稅 <span
+            id="tax_text2"
+          ></span>
+          元</span
+        >
       </div>
       <div id="last_update"></div>
     </div>
@@ -254,118 +335,134 @@
       有疑問請聯繫 DC: yueying0714
     </div>
   </div>
-<script>
-const currencyNames = { HKD: "港幣", CNY: "人民幣", USD: "美金" };
-const currencyIcons = {
-  HKD: "hkd.svg",
-  CNY: "cny.svg",
-  USD: "usd.svg"
-};
-let curr = "HKD";
-let lastRequestId = 0;
+  <script>
+    const currencyNames = { HKD: "港幣", CNY: "人民幣", USD: "美金" };
+    const currencyIcons = {
+      HKD: "hkd.svg",
+      CNY: "cny.svg",
+      USD: "usd.svg",
+    };
+    let curr = "HKD";
+    let lastRequestId = 0;
 
-// 金額千分位
-function formatAmount(val) {
-  if (!isFinite(val)) return '';
-  return Number(val).toLocaleString("zh-TW");
-}
-// UI更新
-function updateCurrencyUI() {
-  curr = document.getElementById("base-currency").value;
-  document.getElementById("currency-icon").src = currencyIcons[curr];
-  document.querySelectorAll(".foreign-label").forEach(
-    (e) => (e.textContent = currencyNames[curr])
-  );
-  const direction = directionVal();
-  const inputLabel = document.getElementById("input-label");
-  const unitText = document.getElementById("unit-text");
-  if (direction === "foreignToTwd") {
-    inputLabel.textContent = `我需要${currencyNames[curr]}`;
-    unitText.textContent = "元";
-  } else {
-    inputLabel.textContent = `我要繳台幣`;
-    unitText.textContent = "元";
-  }
-  document.querySelector(".foreign-amt-label").textContent = currencyNames[curr];
-}
-function directionVal() {
-  return document.querySelector('input[name="direction"]:checked').value;
-}
-async function doCalculate() {
-  document.getElementById("err-tip").textContent = "";
-  const amount = parseFloat(document.getElementById("amount").value);
-  const direction = directionVal();
-  const base = curr;
-  const target = "TWD";
-  if (!amount || amount < 1) {
-    document.getElementById("result-block").style.display = "none";
-    return;
-  }
-  document.getElementById("result-direction1").style.display = direction === "foreignToTwd" ? "block" : "none";
-  document.getElementById("result-direction2").style.display = direction === "twdToForeign" ? "block" : "none";
-  document.getElementById("result-block").style.display = "block";
-  document.getElementById("rate_txt").innerText = "載入中...";
-
-  const reqId = ++lastRequestId;
-
-  try {
-    const res = await fetch("/api/calculate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount, direction, base, target }),
+    // 限制只能輸入數字、最多5位、且不允許開頭0
+    document.getElementById("amount").addEventListener("input", function () {
+      let val = this.value.replace(/\D/g, ""); // 移除非數字
+      val = val.slice(0, 5); // 限制長度5位
+      val = val.replace(/^0+/, ""); // 移除前導0
+      this.value = val;
     });
-    const data = await res.json();
-    if (data.error) throw new Error(data.error);
 
-    if (reqId !== lastRequestId) return; // 只有最後一次才更新
-    document.getElementById("rate_txt").innerText = `${data.quoteRate.toFixed(4)} （${currencyNames[curr]}→台幣）`;
-    document.getElementById("last_update").innerText = `匯率更新：${new Date(data.lastUpdated).toLocaleString()}`;
-    if (direction === "foreignToTwd") {
-      document.getElementById("final-twd").innerText = formatAmount(data.finalTwd);
-      document.getElementById("fee_text").innerText = formatAmount(data.fee);
-      document.getElementById("tax_text").innerText = formatAmount(data.tax);
-    } else {
-      document.getElementById("final-foreign").innerText = formatAmount(data.finalForeign);
-      document.getElementById("fee_text2").innerText = formatAmount(data.fee);
-      document.getElementById("tax_text2").innerText = formatAmount(data.tax);
+    function formatAmount(val) {
+      if (!isFinite(val)) return "";
+      return Number(val).toLocaleString("zh-TW");
     }
-  } catch (e) {
-    if (reqId !== lastRequestId) return;
-    document.getElementById("rate_txt").innerText = "";
-    document.getElementById("result-block").style.display = "none";
-    document.getElementById("err-tip").textContent = "計算失敗: " + e.message;
-  }
-}
-function debounce(fn, delay) {
-  let timer = null;
-  return function(...args) {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), delay);
-  };
-}
-function readyAutoCalculate() {
-  document.getElementById("base-currency").addEventListener("change", () => {
+    function updateCurrencyUI() {
+      curr = document.getElementById("base-currency").value;
+      document.getElementById("currency-icon").src = currencyIcons[curr];
+      document.querySelectorAll(".foreign-label").forEach((e) => {
+        e.textContent = currencyNames[curr];
+      });
+      const direction = directionVal();
+      const inputLabel = document.getElementById("input-label");
+      const unitText = document.getElementById("unit-text");
+      if (direction === "foreignToTwd") {
+        inputLabel.textContent = `我需要${currencyNames[curr]}`;
+        unitText.textContent = "元";
+      } else {
+        inputLabel.textContent = `我要繳台幣`;
+        unitText.textContent = "元";
+      }
+      document.querySelector(".foreign-amt-label").textContent = currencyNames[curr];
+    }
+    function directionVal() {
+      return document.querySelector('input[name="direction"]:checked').value;
+    }
+    async function doCalculate() {
+      document.getElementById("err-tip").textContent = "";
+      const amount = parseFloat(document.getElementById("amount").value);
+      const direction = directionVal();
+      const base = curr;
+      const target = "TWD";
+      if (!amount || amount < 1) {
+        document.getElementById("result-block").style.display = "none";
+        return;
+      }
+      document.getElementById("result-direction1").style.display =
+        direction === "foreignToTwd" ? "block" : "none";
+      document.getElementById("result-direction2").style.display =
+        direction === "twdToForeign" ? "block" : "none";
+      document.getElementById("result-block").style.display = "block";
+      document.getElementById("rate_txt").innerText = "載入中...";
+
+      const reqId = ++lastRequestId;
+      try {
+        const res = await fetch("/api/calculate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount, direction, base, target }),
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+
+        if (reqId !== lastRequestId) return; // 僅顯示最新結果
+        document.getElementById(
+          "rate_txt"
+        ).innerText = `${data.quoteRate.toFixed(4)} （${currencyNames[curr]}→台幣）`;
+        document.getElementById(
+          "last_update"
+        ).innerText = `匯率更新：${new Date(
+          data.lastUpdated
+        ).toLocaleString()}`;
+        if (direction === "foreignToTwd") {
+          document.getElementById("final-twd").innerText = formatAmount(data.finalTwd);
+          document.getElementById("fee_text").innerText = formatAmount(data.fee);
+          document.getElementById("tax_text").innerText = formatAmount(data.tax);
+        } else {
+          document.getElementById("final-foreign").innerText = formatAmount(data.finalForeign);
+          document.getElementById("fee_text2").innerText = formatAmount(data.fee);
+          document.getElementById("tax_text2").innerText = formatAmount(data.tax);
+        }
+      } catch (e) {
+        if (reqId !== lastRequestId) return;
+        document.getElementById("rate_txt").innerText = "";
+        document.getElementById("result-block").style.display = "none";
+        document.getElementById("err-tip").textContent = "計算失敗: " + e.message;
+      }
+    }
+    function debounce(fn, delay) {
+      let timer = null;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+    function readyAutoCalculate() {
+      document.getElementById("base-currency").addEventListener("change", () => {
+        updateCurrencyUI();
+        const amount = document.getElementById("amount").value;
+        if (amount && parseFloat(amount) > 0) doCalculate();
+        else document.getElementById("result-block").style.display = "none";
+      });
+      document.querySelectorAll('input[name="direction"]').forEach((el) =>
+        el.addEventListener("change", () => {
+          updateCurrencyUI();
+          const amount = document.getElementById("amount").value;
+          if (amount && parseFloat(amount) > 0) doCalculate();
+          else document.getElementById("result-block").style.display = "none";
+        })
+      );
+      document.getElementById("amount").addEventListener(
+        "input",
+        debounce(function () {
+          const amount = document.getElementById("amount").value;
+          if (amount && parseFloat(amount) > 0) doCalculate();
+          else document.getElementById("result-block").style.display = "none";
+        }, 400)
+      );
+    }
     updateCurrencyUI();
-    const amount = document.getElementById("amount").value;
-    if (amount && parseFloat(amount) > 0) doCalculate();
-    else document.getElementById("result-block").style.display = "none";
-  });
-  document.querySelectorAll('input[name="direction"]').forEach((el) =>
-    el.addEventListener("change", (e) => {
-      updateCurrencyUI();
-      const amount = document.getElementById("amount").value;
-      if (amount && parseFloat(amount) > 0) doCalculate();
-      else document.getElementById("result-block").style.display = "none";
-    })
-  );
-  document.getElementById("amount").addEventListener("input", debounce(function() {
-    const amount = document.getElementById("amount").value;
-    if (amount && parseFloat(amount) > 0) doCalculate();
-    else document.getElementById("result-block").style.display = "none";
-  }, 400));
-}
-updateCurrencyUI();
-readyAutoCalculate();
-</script>
+    readyAutoCalculate();
+  </script>
 </body>
 </html>
